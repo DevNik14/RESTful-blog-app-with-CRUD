@@ -8,11 +8,10 @@ const express = require('express'),
 
 
 //App Config
-mongoose.connect('mongodb://localhost/restful_blog_app');
+mongoose.connect(process.env.DATEBASEURL);
+// mongoose.connect('mongodb://localhost/restful_blog_app');
 // mongodb://devnik:jwqfvtd1 @ds127961.mlab.com:27961/restfulblogapp
 // mongoose.connect('mongodb://devnik:jwqfvtd1@ds127961.mlab.com:27961/restfulblogapp');
-
-console.log(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
