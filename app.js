@@ -7,7 +7,7 @@ const express = require('express'),
       methodOverride =require('method-override');
 
 
-const url = process.env.DATEBASEURL || 'mongodb://localhost/restful_blog_app'
+const url = process.env.DATEBASEURL || 'mongodb://localhost/restful_blog_app';
 //App Config
 mongoose.connect(url);
 
