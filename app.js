@@ -7,11 +7,9 @@ const express = require('express'),
       methodOverride =require('method-override');
 
 
+const url = process.env.DATEBASEURL || 'mongodb://localhost/restful_blog_app'
 //App Config
-mongoose.connect(process.env.DATEBASEURL);
-// mongoose.connect('mongodb://localhost/restful_blog_app');
-// mongodb://devnik:jwqfvtd1 @ds127961.mlab.com:27961/restfulblogapp
-// mongoose.connect('mongodb://devnik:jwqfvtd1@ds127961.mlab.com:27961/restfulblogapp');
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
@@ -109,13 +107,6 @@ app.delete('/blogs/:id', function(req, res) {
 });
 
 //Server config
-// http.createServer(app).listen(3000, function() {
-//     console.log(`Server is listening`);
-// });
-
-// app.listen(3000, function() {
-//     console.log(`Server is listening`);
-// });
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log(`Servers is listening`);
